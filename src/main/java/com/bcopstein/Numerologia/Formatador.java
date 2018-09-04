@@ -3,13 +3,19 @@ package com.bcopstein.Numerologia;
 import java.util.regex.Pattern;
 
 public class Formatador{
+	
+	public Formatador() {};
     // Formata uma palavra da lingua inglesa
     // A palavra recebida so pode conter letras ou digitos
     // Se a palavra contiver qualquer outro tipo de simbolo deve retornar IllegalArgumentException
     // Se a palavra estiver vazia tambem retorna a excecao
     // Retorna a palavra em maiusculas 
     public String formataPalavra(String palavra){
-        //TODO
+        boolean verify = false;
+        verify = palavra.matches("[a-zA-Z0-9]*");
+        if(!verify) {
+        	throw new IllegalArgumentException();  
+        }
     	return null;
     }
 
