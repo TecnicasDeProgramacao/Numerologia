@@ -8,15 +8,18 @@ import java.util.regex.Pattern;
 // Qualquer quebra destas regras deve retornar "IllegalArgumentExpression"
 //
 // Veja os tipos de tabelas na wiki do projeto
-public class Redutor{
+public class Redutor
+{
     private TipoTabela tipoTab;
 
-    public Redutor(){
-        tipoTab = TipoTabela.PITAGORICA;
+    public Redutor(TipoTabela tipo)
+    {
+        this.setTipoTabela(tipo);
     }
 
     // Decodifica um caracter segundo a tabela Pitagorica
-    private int tabPitagorica(char c){
+    private int tabPitagorica(char c)
+    {
         switch(c){
             case 'A':
             case 'J':
@@ -59,7 +62,8 @@ public class Redutor{
     }
 
     // Decodifica um caracter segundo a tabela Chaldean
-    private int tabChaldean(char c){
+    private int tabChaldean(char c)
+    {
         switch(c){
             case 'A':
             case 'I':
@@ -101,36 +105,50 @@ public class Redutor{
     }
 
     // Decodifica um caracter segundo a tabela selecionada
-    private int decodChar(char c){
-        //TODO
-        return 0;
+    private int decodChar(char c)
+    {
+    	int code = 0;
+    	if(this.tipoTab == TipoTabela.CHALDEAN)
+    	{
+    		code = this.tabChaldean(c);
+    	}
+    	else
+    	{
+    		code = this.tabPitagorica(c);
+    	}
+        return code;
     }
 
-    private String reducaoSimples(String str){
+    private String reducaoSimples(String str)
+    {
         //TODO
         return null;
     }
 
     // Define o tipo de tabela da tabela corrente
-    public void setTipoTabela(TipoTabela tipo){
+    public void setTipoTabela(TipoTabela tipo)
+    {
         tipoTab = tipo;
     }
 
     // Calcula a reducao de palavra usando a tabela corrente
-    public int reducaoPalavra(String palavra){
+    public int reducaoPalavra(String palavra)
+    {
         //TODO
         return 0;
     }
 
     // Calcula a reducao de frase usando a tabela corrente
-    public int reducaoFrase(String frase){
+    public int reducaoFrase(String frase)
+    {
         //TODO
         return 0;
     }
 
     // Calcula a reducao de uma data no formato dd/mm/aaaa
     // Se estiver fora do formato lanca IllegalArgumentException
-    public int reducaoData(String data){
+    public int reducaoData(String data)
+    {
         //TODO
         return 0;
     }
