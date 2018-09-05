@@ -12,17 +12,23 @@ public class Formatador{
     // Retorna a palavra em maiusculas 
     public String formataPalavra(String palavra){
         boolean verify = false;
+        if(palavra.isEmpty()){
+        	throw new IllegalArgumentException();
+        }
         verify = palavra.matches("[a-zA-Z0-9]*");
         if(!verify) {
         	throw new IllegalArgumentException();  
-        }
-    	return null;
+        }        
+        return palavra.toUpperCase();
+    	//return null;
     }
 
     // Utiliza o metodo formataPalavra e confere se a primeira letra nao e numerica
     public String formataPalavraPlus(String palavra) {
-        //TODO
-    	return null;
+        if(Character.isDigit(palavra.charAt(0))){
+        	throw new IllegalArgumentException();
+        }
+    	return formataPalavra(palavra);
     }
 
     // Formata frases compostas por palavras separadas por espacos em branco e/ou simbolos de pontuacao

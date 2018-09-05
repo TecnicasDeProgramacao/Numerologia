@@ -8,15 +8,17 @@ import junitparams.JUnitParamsRunner;
 
 import junitparams.Parameters;
 
-@RunWith (JUnitParamsRunner.class)
+//@RunWith (JUnitParamsRunner.class)
 class FormatadorTester {
 	
 	@Test
-	@Parameters({"teste1,true", "teste@@2$!,false",})
-	void testFormataPalavra(String param, Boolean ret) {
+	//@Parameters({"teste1,true", "teste@@2$!,false",})
+	void testFormataPalavra() {
 		Formatador f = new Formatador();
-		boolean ver = f.formataPalavra(param);
-		assertEquals(ver, ret);		
+		//boolean ver = f.formataPalavra(param);				
+		String ret = f.formataPalavra("Teste1");
+		assertEquals(ret, "TESTE1");
+		//fail("Not yet implemented");
 	}
 
 	@Test
