@@ -8,7 +8,8 @@ import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 
 @RunWith(JUnitParamsRunner.class)
-class RedutorTester {
+class RedutorTester 
+{
 
 	@BeforeEach
 	public void inicializa()
@@ -18,20 +19,44 @@ class RedutorTester {
 	}
 	
 	@Test
-	@Parameters({})
-	void reducaoPalavraTest() {
+	@Parameters({"ABC"})
+	public void reducaoPalavraChaldeanTest() 
+	{
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	@Parameters({"ABC"})
+	public void reducaoPalavraPitagoricaTest() 
+	{
 		fail("Not yet implemented");
 	}
 	
 	@Test
 	@Parameters({})
-	void reducaoFraseTest() {
+	public void reducaoFraseChaldeanTest() 
+	{
 		fail("Not yet implemented");
 	}
 	
 	@Test
 	@Parameters({})
-	void reducaoDataTest() {
+	public void reducaoFrasePitagoricaTest() 
+	{
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	@Parameters({})
+	public void reducaoDataChaldeanTest() 
+	{
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	@Parameters({})
+	public void reducaoDataPitagoricaTest() 
+	{
 		fail("Not yet implemented");
 	}
 

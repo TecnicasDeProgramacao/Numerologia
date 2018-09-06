@@ -121,8 +121,18 @@ public class Redutor implements InterfaceRedutor
 
     private String reducaoSimples(String str)
     {
+    	String res = str;
     	int soma = 0;
-    	return null;
+    	while(res.length() > 1)
+    	{
+    		soma = 0;
+    		for(int i = 0; i < res.length(); i++)
+    		{
+    			soma += res.charAt(i);
+    		}
+    		res = Integer.toString(soma);
+    	}
+    	return res;
     }
 
     // Define o tipo de tabela da tabela corrente
@@ -149,7 +159,7 @@ public class Redutor implements InterfaceRedutor
         	reduzido += decodChar(palavra.charAt(i));
         }
         reduzido = reducaoSimples(reduzido);
-        return soma;
+        return Integer.parseInt(reduzido);
     }
 
     // Calcula a reducao de frase usando a tabela corrente
@@ -159,8 +169,15 @@ public class Redutor implements InterfaceRedutor
     @Override
 	public int reducaoFrase(String frase)
     {
-        //TODO
-        return 0;
+        String[] split = frase.split(" ");
+        int soma = 0;
+        for(String str: split)
+        {
+        	soma += this.reducaoPalavra(str);
+        }
+        String s = Integer.toString(soma);
+        s = this.reducaoSimples(s);
+        return Integer.parseInt(s);
     }
 
     // Calcula a reducao de uma data no formato dd/mm/aaaa
@@ -171,7 +188,12 @@ public class Redutor implements InterfaceRedutor
     @Override
 	public int reducaoData(String data)
     {
-        //TODO
-        return 0;
+        String[] split = data.split("/");
+        String all = "";
+        for(String str: split)
+        {
+        	all += str;
+        }
+        return Integer.parseInt(this.reducaoSimples(all));
     }
 }
