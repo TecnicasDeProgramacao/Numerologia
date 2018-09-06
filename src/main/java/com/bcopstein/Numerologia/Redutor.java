@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 // Qualquer quebra destas regras deve retornar "IllegalArgumentExpression"
 //
 // Veja os tipos de tabelas na wiki do projeto
-public class Redutor
+public class Redutor implements InterfaceRedutor
 {
     private TipoTabela tipoTab;
 
@@ -121,25 +121,43 @@ public class Redutor
 
     private String reducaoSimples(String str)
     {
-        //TODO
-        return null;
+    	int soma = 0;
+    	return null;
     }
 
     // Define o tipo de tabela da tabela corrente
-    public void setTipoTabela(TipoTabela tipo)
+    /* (non-Javadoc)
+	 * @see com.bcopstein.Numerologia.InterfaceRedutor#setTipoTabela(com.bcopstein.Numerologia.TipoTabela)
+	 */
+    @Override
+	public void setTipoTabela(TipoTabela tipo)
     {
         tipoTab = tipo;
     }
 
     // Calcula a reducao de palavra usando a tabela corrente
-    public int reducaoPalavra(String palavra)
+    /* (non-Javadoc)
+	 * @see com.bcopstein.Numerologia.InterfaceRedutor#reducaoPalavra(java.lang.String)
+	 */
+    @Override
+	public int reducaoPalavra(String palavra)
     {
-        //TODO
-        return 0;
+    	int soma = 0;
+    	String reduzido = "";
+        for(int i = 0; i < palavra.length(); i++)
+        {
+        	reduzido += decodChar(palavra.charAt(i));
+        }
+        reduzido = reducaoSimples(reduzido);
+        return soma;
     }
 
     // Calcula a reducao de frase usando a tabela corrente
-    public int reducaoFrase(String frase)
+    /* (non-Javadoc)
+	 * @see com.bcopstein.Numerologia.InterfaceRedutor#reducaoFrase(java.lang.String)
+	 */
+    @Override
+	public int reducaoFrase(String frase)
     {
         //TODO
         return 0;
@@ -147,7 +165,11 @@ public class Redutor
 
     // Calcula a reducao de uma data no formato dd/mm/aaaa
     // Se estiver fora do formato lanca IllegalArgumentException
-    public int reducaoData(String data)
+    /* (non-Javadoc)
+	 * @see com.bcopstein.Numerologia.InterfaceRedutor#reducaoData(java.lang.String)
+	 */
+    @Override
+	public int reducaoData(String data)
     {
         //TODO
         return 0;
