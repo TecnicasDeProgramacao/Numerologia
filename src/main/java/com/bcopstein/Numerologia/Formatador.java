@@ -2,7 +2,7 @@ package com.bcopstein.Numerologia;
 
 import java.util.regex.Pattern;
 
-public class Formatador{
+public class Formatador {
 	
 	public Formatador() {};
     // Formata uma palavra da lingua inglesa
