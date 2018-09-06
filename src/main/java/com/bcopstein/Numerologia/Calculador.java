@@ -13,15 +13,19 @@ public class Calculador{
     }
 
     public int calculaNumeroDaVida(String data){
+    	
        return reducao.reducaoData(data);        
     }
 
     public int calculaNumeroDestino(String nomeCompleto){
-       return reducao.reducaoFrase(nomeCompleto);
+    	nomeCompleto = formatador.formataFrase(nomeCompleto);
+        return reducao.reducaoFrase(nomeCompleto);
         
     }
 
     public int calculaNumeroDesejosDaAlma(String nomeCompleto){
+    	nomeCompleto = formatador.formataFrase(nomeCompleto);
+    	
     	int numero = 0;
     	for(int i = 0; i< nomeCompleto.length(); i++) {
     		switch(nomeCompleto.charAt(i)) {
