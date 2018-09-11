@@ -128,7 +128,8 @@ public class Redutor implements InterfaceRedutor
     		soma = 0;
     		for(int i = 0; i < res.length(); i++)
     		{
-    			soma += res.charAt(i);
+    			soma += Integer.parseInt(Character.toString(res.charAt(i)));
+    			System.out.println(soma);
     		}
     		res = Integer.toString(soma);
     	}
