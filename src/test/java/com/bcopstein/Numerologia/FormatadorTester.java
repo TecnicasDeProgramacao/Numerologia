@@ -2,32 +2,53 @@ package com.bcopstein.Numerologia;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-@RunWith (JUnitParamsRunner.class)
 class FormatadorTester {
+	private Formatador f;
 	
-	@Test
-	@Parameters({"teste1,TESTE1", "tester23, TESTAR23"})
-	public void testFormataPalavra(String p, String format) {
-		Formatador f = new Formatador();
-		//boolean ver = f.formataPalavra(param);				
+	@BeforeEach
+	public void initial() {
+		f = new Formatador();
+	}
+	
+	@ParameterizedTest
+	@CsvSource({"teste1,TESTE1","testar23, TESTAR23", "SemNumero, SEMNUMERO", "15225, 15225", "FoRadeCoNFIg, FORADECONFIG", "1PorNum, 1PORNUM"})
+	public void testFormataPalavra(String p, String format) 
+	{		
 		String ret = f.formataPalavra(p);
 		assertEquals(ret, format);
-		//fail("Not yet implemented");
+	}
+	
+	@ParameterizedTest
+	@CsvSource({"teste@falso", "!dd", "fINALExepTion#$test"})
+	public void testFormataPalavraExeption(String p) 
+	{				
+		assertThrows(IllegalArgumentException.class,() -> f.formataPalavra(p));
 	}
 
-	@Test
-	void testFormataPalavraPlus() {
-		fail("Not yet implemented");
+	@ParameterizedTest
+	@CsvSource({"teste1,TESTE1","testar23, TESTAR23", "randomteste123, RANDOMTESTE123"})
+	public void testFormataPalavraPlus(String p, String format) {
+		String ret = f.formataPalavraPlus(p);
+		assertEquals(ret, format);
 	}
-
-	@Test
-	void testFormataFrase() {
-		fail("Not yet implemented");
+	
+	@ParameterizedTest
+	@CsvSource({"teste@falso", "!dd", "fINALExepTion#$test", "8FIRSTnUM", "5tartT0S33"})
+	public void testFormataPalavraPlusExeption(String p) 
+	{				
+		assertThrows(IllegalArgumentException.class,() -> f.formataPalavraPlus(p));
+	}
+	
+	
+	@ParameterizedTest
+	@CsvSource({"teste1,TESTE1","testar23, TESTAR23", "vou so testar, VOU SO TESTAR"})
+	public void testFormataFrase(String p, String format) {
+		String ret = f.formataFrase(p);
+		assertEquals(ret, format);
 	}
 
 }
