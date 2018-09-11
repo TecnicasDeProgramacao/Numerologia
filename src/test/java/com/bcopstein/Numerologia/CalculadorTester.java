@@ -2,6 +2,7 @@ package com.bcopstein.Numerologia;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.intThat;
@@ -22,23 +23,35 @@ class CalculadorTester {
 	private InterfaceRedutor mockRedut = mock(InterfaceRedutor.class);
 	
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		when(mockFormat.formataFrase("John Smit")).thenReturn("JOHN SMIT");
+		when(mockFormat.formataFrase("Jane Smith")).thenReturn("JANE SMITH");
+		
 		when(mockRedut.reducaoFrase("JOHN SMIT")).thenReturn(5);
+		when(mockRedut.reducaoData("07/22/1995")).thenReturn(6);
 	
 		calc = new Calculador(mockRedut,mockFormat);
-		
-		//carrinho.addItem(new Produto("CPU I7",2.0,450), 1);  // 450 + 2 = 452
-		//carrinho.addItem(new Produto("Monitor",3.0,120), 1); // 120 + 3 = 123
-		//carrinho.addItem(new Produto("Celular",0.67,200), 25); // 5000 + 0 = 5000
 	}
 	
 	
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void testCalculaNroVida() {
+		assertEquals(6, calc.calculaNumeroDaVida("07/22/1995"));
 	}
+	
+	@Test
+	public void testCalculaNroDestino() {
+		assertEquals(5, calc.calculaNumeroDestino("John Smit"));
+	}
+	
+	@Test
+	public void testCalculaNroDesejosAlma() {
+		assertEquals(6, calc.calculaNumeroDesejosDaAlma("Jane Smith"));
+	}
+	
+	
+	
 
 }
