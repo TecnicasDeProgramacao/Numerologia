@@ -2,29 +2,28 @@ package com.bcopstein.Numerologia;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-@RunWith(JUnitParamsRunner.class)
 class RedutorTester 
 {
-
+	private Redutor pit, cha;
+	
 	@BeforeEach
 	public void inicializa()
 	{
-		Redutor pit = new Redutor(TipoTabela.PITAGORICA);
-		Redutor cha = new Redutor(TipoTabela.CHALDEAN);
+		pit = new Redutor(TipoTabela.PITAGORICA);
+		cha = new Redutor(TipoTabela.CHALDEAN);
 	}
 	
-	@Test
-	@Parameters({"ABC"})
-	public void reducaoPalavraChaldeanTest() 
+	@ParameterizedTest
+	@CsvSource({"ABC,6","JOAO,7","KIN,8","LUCAS,7","THIAGO,3"})
+	public void reducaoPalavraChaldeanTest(String palavra, int reducao) 
 	{
-		fail("Not yet implemented");
+		int resp = cha.reducaoPalavra(palavra);
+		assertEquals(resp, reducao);
 	}
-	
+	/*
 	@Test
 	@Parameters({"ABC"})
 	public void reducaoPalavraPitagoricaTest() 
@@ -59,5 +58,5 @@ class RedutorTester
 	{
 		fail("Not yet implemented");
 	}
-
+*/
 }
