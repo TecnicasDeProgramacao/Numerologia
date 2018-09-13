@@ -13,32 +13,20 @@ public class Calculador{
     }
 
     public int calculaNumeroDaVida(String data) {
-    int num = 0;
-    try {
-    	num  = reducao.reducaoData(data);
-    } catch (IllegalArgumentException e) {
-    	System.out.println("Caracter ilegal foi digitado");
-    	}
-    return num;
+    	return reducao.reducaoData(data);
+    
     }
 
     public int calculaNumeroDestino(String nomeCompleto){
-       try {
-    	   nomeCompleto = formatador.formataFrase(nomeCompleto);
-       } catch (IllegalArgumentException e) {
-    	   System.out.println("Foi digitado caracter ilegal");
-       }
+       
+       nomeCompleto = formatador.formataFrase(nomeCompleto);
        return reducao.reducaoFrase(nomeCompleto);
         
     }
 
     public int calculaNumeroDesejosDaAlma(String nomeCompleto){
-    	try {
-     	   nomeCompleto = formatador.formataFrase(nomeCompleto);
-        } catch (IllegalArgumentException e) {
-     	   System.out.println("Foi digitado caracter ilegal");
-        }
     	
+     	nomeCompleto = formatador.formataFrase(nomeCompleto);
     	int numero = 0;
     	for(int i = 0; i< nomeCompleto.length(); i++) {
     		switch(nomeCompleto.charAt(i)) {
