@@ -15,7 +15,8 @@ class FormatadorTests {
 	}
 	
 	@ParameterizedTest
-	@CsvSource({"teste1,TESTE1","testar23, TESTAR23", "SemNumero, SEMNUMERO", "15225, 15225", "FoRadeCoNFIg, FORADECONFIG", "1PorNum, 1PORNUM"})
+	@CsvSource({"teste1,TESTE1","testar23, TESTAR23", "SemNumero, SEMNUMERO", "15225, 15225", 
+		"FoRadeCoNFIg, FORADECONFIG", "1PorNum, 1PORNUM"})
 	public void testFormataPalavra(String p, String format) 
 	{		
 		String ret = f.formataPalavra(p);

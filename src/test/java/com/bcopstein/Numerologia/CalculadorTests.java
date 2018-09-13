@@ -21,10 +21,11 @@ class CalculadorTests {
 		when(mockFormat.formataFrase("John Smit")).thenReturn("JOHN SMIT");
 		when(mockFormat.formataFrase("Jane Smith")).thenReturn("JANE SMITH");
 		
-		//when(mockFormat.formataFrase("Jan-e Smith")).thenThrow(IllegalArgumentException e);
-		
 		when(mockRedut.reducaoFrase("JOHN SMIT")).thenReturn(5);
 		when(mockRedut.reducaoData("07/22/1995")).thenReturn(6);
+		
+		when(mockFormat.formataFrase("@J-")).thenThrow(new IllegalArgumentException());
+		when(mockRedut.reducaoData("@J-")).thenThrow(new IllegalArgumentException());
 	
 		calc = new Calculador(mockRedut,mockFormat);
 	}
@@ -36,7 +37,10 @@ class CalculadorTests {
 		assertEquals(6, calc.calculaNumeroDaVida("07/22/1995"));
 	}
 	
-	
+	@Test
+	public void testCalculaNroVidaComExcecao() {
+		assertThrows(IllegalArgumentException.class,() -> calc.calculaNumeroDaVida("@J-"));
+	}
 	
 	@Test
 	public void testCalculaNroDestino() {
@@ -44,8 +48,18 @@ class CalculadorTests {
 	}
 	
 	@Test
+	public void testCalculaNroDestinoComExcecao() {
+		assertThrows(IllegalArgumentException.class,() -> calc.calculaNumeroDestino("@J-"));
+	}
+	
+	@Test
 	public void testCalculaNroDesejosAlma() {
 		assertEquals(6, calc.calculaNumeroDesejosDaAlma("Jane Smith"));
+	}
+	
+	@Test
+	public void testCalculaNroDesejosAlmaComExcecao() {
+		assertThrows(IllegalArgumentException.class,() -> calc.calculaNumeroDesejosDaAlma("@J-"));
 	}
 	
 	
