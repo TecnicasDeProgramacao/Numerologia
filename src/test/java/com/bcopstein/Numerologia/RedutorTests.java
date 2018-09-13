@@ -23,40 +23,39 @@ class RedutorTests
 		int resp = cha.reducaoPalavra(palavra);
 		assertEquals(resp, reducao);
 	}
-	/*
-	@Test
-	@Parameters({"ABC"})
+	
+	@ParameterizedTest
+	@CsvSource({})
 	public void reducaoPalavraPitagoricaTest() 
 	{
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	@Parameters({})
+	@ParameterizedTest
+	@CsvSource({})
 	public void reducaoFraseChaldeanTest() 
 	{
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	@Parameters({})
+	@ParameterizedTest
+	@CsvSource({})
 	public void reducaoFrasePitagoricaTest() 
 	{
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	@Parameters({})
+	@ParameterizedTest
+	@CsvSource({})
 	public void reducaoDataChaldeanTest() 
 	{
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	@Parameters({})
+	@ParameterizedTest
+	@CsvSource({})
 	public void reducaoDataPitagoricaTest() 
 	{
 		fail("Not yet implemented");
 	}
-*/
 }
