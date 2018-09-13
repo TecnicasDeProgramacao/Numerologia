@@ -51,7 +51,7 @@ public class Formatador implements FormatadorInterface{
     	if(frase.isEmpty()){
         	throw new IllegalArgumentException();
         }
-    	String[] strArray = frase.split("[[ ]*|[,]*|[\\.]*|[:]*|[/]*|[!]*|[?]*|[+]*]+");
+    	String[] strArray = frase.split("[[ ]*|[,]*|[\\.]*|[:]*|[/]*|[;]*|[!]*|[?]*|[+]*]+");
     	String ret = new String();
     	for(int i=0; i< strArray.length; i++) 
     	{

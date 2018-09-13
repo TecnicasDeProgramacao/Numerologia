@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class FormatadorTester {
+class FormatadorTests {
 	private Formatador f;
 	
 	@BeforeEach
@@ -45,10 +45,26 @@ class FormatadorTester {
 	
 	
 	@ParameterizedTest
-	@CsvSource({"teste1,TESTE1","testar23, TESTAR23", "vou so testar, VOU SO TESTAR"})
+	@CsvSource({"teste1,TESTE1", "vou so testar, VOU SO TESTAR", 
+		"Tres tigres! comem 3 pratos. De trigo, TRES TIGRES COMEM 3 PRATOS DE TRIGO",
+		"dividindo:palavras/com?sinais!de;pontuacao, DIVIDINDO PALAVRAS COM SINAIS DE PONTUACAO"})
 	public void testFormataFrase(String p, String format) {
 		String ret = f.formataFrase(p);
 		assertEquals(ret, format);
 	}
-
+	
+	@ParameterizedTest
+	@CsvSource({"teste@falso", "!dd", "fINALExepTion#$test","dividindo:palavras/com?sinais!de;pontuação",
+		})
+	public void testFormataFraseExeption(String p) 
+	{				
+		assertThrows(IllegalArgumentException.class,() -> f.formataFrase(p));
+	}
+	@ParameterizedTest
+	@CsvSource({"teste@falso", "!dd", "fINALExepTion#$test","dividindo:palavras/com?sinais!de;pontuação",
+		})
+	public void testFraseVazia(String p) 
+	{				
+		assertThrows(IllegalArgumentException.class,() -> f.formataFrase(new String()));
+	}
 }
