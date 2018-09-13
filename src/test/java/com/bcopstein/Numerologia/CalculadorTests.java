@@ -4,20 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.intThat;
-import static org.mockito.Matchers.anyDouble;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import org.junit.Before;
-//import org.junit.Test;
-import org.mockito.ArgumentMatcher;
 
 
-
-
-class CalculadorTester {
+class CalculadorTests {
 	private Calculador calc;
 	private FormatadorInterface mockFormat = mock(FormatadorInterface.class);
 	private InterfaceRedutor mockRedut = mock(InterfaceRedutor.class);
@@ -27,6 +20,8 @@ class CalculadorTester {
 	public void setUp() throws Exception {
 		when(mockFormat.formataFrase("John Smit")).thenReturn("JOHN SMIT");
 		when(mockFormat.formataFrase("Jane Smith")).thenReturn("JANE SMITH");
+		
+		//when(mockFormat.formataFrase("Jan-e Smith")).thenThrow(IllegalArgumentException e);
 		
 		when(mockRedut.reducaoFrase("JOHN SMIT")).thenReturn(5);
 		when(mockRedut.reducaoData("07/22/1995")).thenReturn(6);
@@ -40,6 +35,8 @@ class CalculadorTester {
 	public void testCalculaNroVida() {
 		assertEquals(6, calc.calculaNumeroDaVida("07/22/1995"));
 	}
+	
+	
 	
 	@Test
 	public void testCalculaNroDestino() {
