@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 
 
 
-class CalculadorTester {
+class CalculadorTests {
 	private Calculador calc;
 	private FormatadorInterface mockFormat = mock(FormatadorInterface.class);
 	private InterfaceRedutor mockRedut = mock(InterfaceRedutor.class);
