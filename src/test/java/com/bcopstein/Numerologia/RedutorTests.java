@@ -72,15 +72,15 @@ class RedutorTests
 	
 	@ParameterizedTest
 	@CsvSource({"shAHJ ASSsrf", "%$Ha *&YHUu (*gh", "ab545A (*&ä s", "8FIRSTnUM )(&ys sa", "5tartT0S33 as1564 -/", "ks*¨7987aA sas (* 45"})
-	public void illegalArgumenteExceptionReducaoFraseChaldeanTest(String palavra) 
+	public void illegalArgumenteExceptionReducaoFraseChaldeanTest(String frase) 
 	{				
-		assertThrows(IllegalArgumentException.class,() -> cha.reducaoPalavra(palavra));
+		assertThrows(IllegalArgumentException.class,() -> cha.reducaoFrase(frase));
 	}
 	
 	@ParameterizedTest
 	@CsvSource({"shAHJ ASSsrf", "%$Ha *&YHUu (*gh", "ab545A (*&ä s", "8FIRSTnUM )(&ys sa", "5tartT0S33 as1564 -/", "ks*¨7987aA sas (* 45"})
-	public void illegalArgumenteExceptionReducaoFrasePitacoricaTest(String palavra) 
+	public void illegalArgumenteExceptionReducaoFrasePitacoricaTest(String frase) 
 	{				
-		assertThrows(IllegalArgumentException.class,() -> pit.reducaoPalavra(palavra));
+		assertThrows(IllegalArgumentException.class,() -> pit.reducaoFrase(frase));
 	}
 }
